@@ -2,15 +2,15 @@
 {
     public class SpiderFactory
     {
-        private readonly Dictionary<string, ISpider> _spiders = new();
-        private Lazy<UnknownSpider> _unknownSpider = new Lazy<UnknownSpider>(() => new UnknownSpider());
+        private readonly Dictionary<string, ISpider> _spiders = [];
+        private readonly Lazy<UnknownSpider> _unknownSpider = new(() => new UnknownSpider());
 
         public ISpider GetSpider(string spiderType)
         {
-            if (_spiders.ContainsKey(spiderType))
+            if (_spiders.TryGetValue( spiderType, out ISpider? value ))
             {
                 Console.WriteLine($"\n(Re-using the {spiderType})");
-                return _spiders[spiderType];
+                return value;
             }
 
             switch ( spiderType ) 

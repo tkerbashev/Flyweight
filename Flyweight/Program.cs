@@ -1,7 +1,6 @@
 ﻿using Flyweight;
 
-Console.WriteLine( "Flyweight Structural Design Pattern example" );
-Console.WriteLine();
+Console.WriteLine( "Flyweight Structural Design Pattern example\n" );
 
 var spiderList = new SpiderFactory( );
 
